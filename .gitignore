@@ -1,0 +1,9 @@
+db/postgresql-data
+
+# Logs
+logs
+*.log
+
+# dotenv enviroment variables file
+.env
+.env.test
