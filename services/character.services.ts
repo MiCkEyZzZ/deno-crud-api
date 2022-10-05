@@ -1,26 +1,32 @@
-import { ICharacter } from "../types/character.ts";
-import { ICharacterService } from "./character.service.interface.ts";
+import { ICharacterService } from "../interfaces/character.service.interface.ts";
+import { Character } from "../types/character.ts";
+import CharacterRepositories from "../repositories/character.repositories.ts";
 
 class CharacterServices implements ICharacterService {
-  public async create(): Promise<void> {}
-
-  // deno-lint-ignore require-await
-  public async getCharacters(): Promise<ICharacter[]> {
-    return "";
+  public checkCharacterExistById(id: number): Promise<boolean> {
+    return CharacterRepositories.check(id);
   }
 
-  // deno-lint-ignore require-await
-  public async getCharacter(): Promise<ICharacter> {
-    return "";
+  public createCharacter(name: Character): Promise<void> {
+    return CharacterRepositories.create(name);
   }
 
-  // deno-lint-ignore require-await
-  public async updateCharacter(): Promise<ICharacter> {
-    return "";
+  public getCharacters(): Promise<Character[] | []> {
+    return CharacterRepositories.getAll();
   }
 
-  public deleteCharacter(): void {
-    return "";
+  public getCharacter(id: Character): Promise<Character | null> {
+    return CharacterRepositories.getSingle(id);
+  }
+
+  public updateCharacterById(
+    { id, name }: Character,
+  ): Promise<Character | null> {
+    return CharacterRepositories.updateSingle({ id, name });
+  }
+
+  public deleteCharacter(id: Character): Promise<void> {
+    return CharacterRepositories.deleteSingle(id);
   }
 }
 

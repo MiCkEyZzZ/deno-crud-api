@@ -19,8 +19,21 @@
 ## Начало работы
 
 ```markdown
-1. git clone https://github.com/renacargnelutti/deno-rest-api.git
-2. denon start
+1. git clone https://github.com/renacargnelutti/deno-rest-api.git;
+
+2. установка MySQL и MySQL Workbench;
+
+3. denon start;
+```
+
+## Маршруты
+
+```
+GET     /character
+GET     /character/:id
+POST    /character
+PUT     /character/:id
+DELETE  /character/:id
 ```
 
 [1]: 'https://github.com/denoland/deno'

@@ -1,11 +1,4 @@
-export interface ICharacter {
-  id?: string;
+export interface Character {
+  id: number;
   name: string;
-  species: string;
-  type: string;
-  occupation: string;
-  status: string;
-  gender: string;
-  affiliation: string;
-  createdAt: Date;
 }

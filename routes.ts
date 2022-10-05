@@ -1,14 +1,14 @@
 import { Router } from "https://deno.land/x/oak@v11.1.0/mod.ts";
 
-import CharacterControllers from "./controller/character.controllers.ts";
+import characterControllers from "./controllers/character.controllers.ts";
 
 const router = new Router();
 
 router
-  .get("/character", CharacterControllers.getCharacters)
-  .get("/character/:id", CharacterControllers.getCharacter)
-  .post("/character", CharacterControllers.createCharacter)
-  .put("/character/:id", CharacterControllers.updateCharacter)
-  .delete("/character/:id", CharacterControllers.deleteCharacter);
+  .post("/character", characterControllers.createCharacter)
+  .get("/character", characterControllers.getCharacters)
+  .get("/character/:id", characterControllers.getCharacter)
+  .put("/character/:id", characterControllers.updateCharacter)
+  .delete("/character/:id", characterControllers.deleteCharacter);
 
 export default router;
